@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="js/main.js"></script>
+<link rel="stylesheet" href="css/main.css"/>
+<link rel="icon" type="image/ico" href="Images/logo.ico">
+<title>Facebook - log in or sign up</title>
+</head>
+<body>
+<div class="login">
+<table>
+<tr>
+<td width=67%>
+<h1 id="fb">facebook</h1>
+</td>
+<td>
+<form class="login-form" autocomplete="off" method="post">
+<pre>Email or Phone :       Password :</pre>
+<input type="text" class="log-form" placeholder="username" title="Username" name="l_user" size="17" required />
+<input type="password" class="log-form" placeholder="password" title="Password" name="l_pass" size="17" required />
+<input type="submit" id="login_button"  value="Log In" >
+</form>
+<a href="forgot_pass.html"  id="f_text">Forgotten account?</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="signup">
+<table>
+<tr>
+<td width=65% id="connect">
+<h3>Facebook helps you connect and share with the<br> people in your life.</h3>
+<img src="Images/connect.png"></img>
+</td>
+<td id="signup-td"> <h1 id="create_text">Create an account</h1>
+<p id="text_1">it's free and always will be</p>
+<form id="sign_up" autocomplete="on" action="insert.php" method="post">
+<input type="text" placeholder="First Name" title="Firstname" name="fname" required />
+<input type="text" placeholder="Surame" title="Surname" name="lname" required /><br>
+<input type="text" placeholder="Mobile number or email address" title="Phone or email" name="user" size=50" required /><br>
+<input type="password" placeholder="New password" id="password" title="New Password" name="pass" size="50" required />
+<br>
+<label>&nbsp&nbsp<b>Birthday</b></label><br><input type="date" name="dob" required /><br>
+<input type="radio" name="gender" value="Male" required checked /> Male
+<input type="radio" name="gender" value="Female" /> Female
+<p id="text_2">By clicking Sign Up, you agree to our Terms, Data Policy and<br> Cookie Policy.
+ You may receive SMS notifications from us and<br> can opt out at any time.</p>
+<input type="submit" value="Sign Up" id="sign_up_button"/>
+</form>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
