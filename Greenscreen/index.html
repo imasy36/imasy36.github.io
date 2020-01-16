@@ -1,0 +1,25 @@
+<html>
+<head><title>Green Screen</title>
+ <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+ <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+ <script src="img.js"></script> 
+ <link rel="stylesheet" href="img.css">
+</head>
+<body>
+   <h1><em><u>Green Sreen Web Page</u></em></h1>
+  <table>
+  <tr>
+  <td><canvas id="cn1"></canvas></td>
+  <td><canvas id="cn2"></canvas></td>
+  </tr>
+  </table> 
+  <p>
+ <mark> ForeGround : </mark><input type="file" id="f1" accept="image/*" multiple="false" onchange="loadForegroundImage()"> 
+  <br> 
+  <mark>Background : </mark><input type="file" id="f2" accept="image/*" multiple="false" onchange="loadBackgroundImage()">
+  <br></p><p>
+  <input type="button" value="create composite" onclick="doGreenScreen()" id="b1">
+  <input type="button" value="Clear Canvases" onclick="clearCanvas()" >
+  </p>
+</body>  
+</html>

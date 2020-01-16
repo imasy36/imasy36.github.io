@@ -1,0 +1,28 @@
+body
+{
+	background-image:url("gre.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	color:magenta;
+	font-family:'lobster';
+}
+
+h1 {text-align:center;}
+
+canvas
+{
+	background-color:white;	
+	border:1px solid blue;
+	height:320px;
+}
+
+input
+{
+	color:white;
+	padding:10px;
+	border:3px groove grey;
+	background-color:grey;
+	margin:6px;
+}
+
+p {font-size:20px;}
