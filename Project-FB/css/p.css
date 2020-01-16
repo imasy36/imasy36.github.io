@@ -1,0 +1,37 @@
+.login
+{
+	background-color:#29487d;
+	width:100%;	
+	color:white;
+	height:100px;
+	background-position:fixed;
+}
+.login-form
+{
+	line-height:.001;
+}
+#fb{padding-left:180px;font-size:38px;}
+h1{font-family:Helvetica;}
+.log-form
+{
+	padding:2px;
+}
+a
+{
+	color:white;
+}
+#f_text
+{
+	padding-left:167px;
+	font-size:13px;
+	}
+.d2
+{
+	background-image:linear-gradient(white,#e3eaef);
+}
+fieldset
+{
+	background-color:#e3eaef;
+	width:200px;
+	margin-left:450px;
+}

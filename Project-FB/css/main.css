@@ -1,0 +1,82 @@
+.login
+{
+	background-color:#29487d;
+	width:100%;	
+	color:white;
+	height:100px;
+	background-position:fixed;
+}
+
+#login_button
+{
+	background-color:#2948ef; 
+	color:white;
+	border:none;
+	font-weight: bold;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+#sign_up input
+{
+	border-radius:5px;
+	border-color:#e3eaef;
+	padding:10px;
+	margin:5px;
+}
+input
+{
+	margin-right:5px;
+}
+#connect
+{
+	padding-top:0px;
+	padding-bottom:px;
+	padding-left:150px;	
+	line-height:30px;
+}
+#signup-td
+{
+	padding-top:10px;
+	line-height:30px;
+}
+.login-form
+{
+	line-height:.001;
+}
+a
+{
+	color:white;
+}
+
+#fb{padding-left:180px;font-size:38px;}
+#create_text{padding-left:px;font-size:38px;color:black;}
+#text_1{padding-left:px;font-size:18px;color:black;font-weight:bold;}
+#text_2{padding-left:px;font-size:12px;color:black;line-height:14px;}
+#sign_up_button{font-size:20px;background-color:green;color:white;}
+#f_text
+{
+	padding-left:167px;
+	font-size:13px;
+	}
+h1,h3{font-family:Helvetica;}
+
+h3{color:#29487d;}
+.log-form
+{
+	padding:2px;
+}
+
+pre
+{
+	tab-size:30;
+}
+
+table , tr , td
+{
+	border:none;
+}
+.signup
+{
+	background-image:linear-gradient(white,#e3eaef);
+	height:540px;
+}
