@@ -1,0 +1,22 @@
+body
+{
+	font-family:'lobster';
+	background-image:url("fil1.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+canvas
+{
+	border:3px groove blue;
+	height:400px;
+	background-color:white;
+}
+
+input
+{
+	padding:5px;
+	margin:5px;
+	border:4px groove #e0e09f;
+	background-color:#dbdb76;
+}

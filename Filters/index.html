@@ -1,0 +1,18 @@
+<html>
+<head><title>Filters</title>
+ <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'> 
+ <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+ <script src="img.js"></script> 
+ <link rel="stylesheet" href="img.css">
+</head>
+<body>
+   <center><h1><em><u>Image Filters</u></em></h1></center>
+   <canvas id="cn1"></canvas>
+  <p>
+  Filename : <input type="file" id="f1" accept="image/*" multiple="false" onchange="upload()"> <br>
+  <input type="button" value="Grayscale" onclick="doGrey()" id="b1">
+  <input type="button" value="Red" onclick="doRed()" id="b2"><br>
+  <input type="button" value="Reset" onclick="clearCanvas()" id="b4">
+  </p>
+</body>  
+</html>
