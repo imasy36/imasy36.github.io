@@ -1,6 +1,6 @@
 function login(form)
 {
-	if(form.username.value=="imasy36"&&form.pass.value=="_Imasy36")
+	if(form.username.value=="imasy36"&&form.pass.value=="Imasy36")
 	{
 		alert("succesfully logged in ");
 		window.open("main.html","_self");
