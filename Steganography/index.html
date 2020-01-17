@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Steganography Tool</title>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+<script src="steganography.js"></script>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+<h1><u><em>Steganography</em></u></h1>
+<table>
+<tr>
+<td><canvas id="cn1"></canvas></td>
+<td><canvas id="cn2"></canvas></td>
+</tr>
+</table>
+<br><br><p class="p">
+Image 1 : <input type="file" id="f1" accept="image/" multiple="false" onchange="I1upload()">
+<br><br>
+Image 2 : <input type="file" id="f2" accept="image/" multiple="false" onchange="I2upload()">
+<br></p>
+<input type="button" value="Hide" class="b" onclick="hide()">
+<input type="button" value="Reset all" class="b" onclick="clearCanvas()">
+</body>
+</html>
