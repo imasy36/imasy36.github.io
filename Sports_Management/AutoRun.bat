@@ -1,1 +1,0 @@
-start SPZ_CLUB.exe
