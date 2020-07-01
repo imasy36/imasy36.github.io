@@ -1,0 +1,36 @@
+/* Body */
+body{
+	/*background-color: #9399a3;*/
+}
+/* Nav */
+nav li img{
+	height: 50px;
+	width: 100px;
+}
+nav ul{
+	margin-right: 50px; 
+}
+nav ul li{
+	display: inline;
+	word-spacing: 20px;
+}
+/* Frame */
+iframe{
+	border: none;
+}
+
+/* Footer */
+footer ul{
+	align-self: center;
+}
+footer ul li{
+	display: inline;
+	padding: 15px;
+}
+footer li img{
+	height: 32px;
+	width: 32px;
+}
+footer li img:hover{
+	transform: scale(1.5);
+}
