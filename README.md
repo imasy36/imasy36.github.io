@@ -13,5 +13,3 @@ Steganography : It is a tool to conceal image within another image.
 [ For both above tools the images must be of same size so that no cropping is required ]
 
 Filters : Image filters - Grayscale and Red Shading
-
-                                    Username = imasy36  Password = Imasy36
