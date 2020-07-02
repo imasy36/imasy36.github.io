@@ -4,5 +4,11 @@ img{
 	margin: 5% 0% 0% 20%;
 }
 p{
-	width: 40%;
+	width: 80%;
+	font-size: 20px;
+	font-family:  Comic Sans MS;
+}
+h1{
+	font-size: 60px;
+	font-family: 'Lobster';
 }
