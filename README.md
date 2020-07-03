@@ -1,7 +1,6 @@
-# imasy36.github.io
-#My Portfolio
-  -with following details
-Projects 
+# imasy36.github.io  My Portfolio
+  -with following details\n
+Projects \n
   Facebook : A web page with design similar to Facebook [ Basic HTML & CSS ]
 
   GreenScreen : A visual effects technique for compositing (layering) two images. The technique has been used in many fields to remove a
