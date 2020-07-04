@@ -1,0 +1,28 @@
+.panel{
+	position: relative;
+	width: 20%;	
+	float: left;
+	border-width: 0px;
+	padding: 20px 0px 10px 0px;	
+}
+.panel ul li{
+	padding: 10px;
+	font-weight: bold;
+}
+legend{
+	font-weight: bold;
+}
+.frame{
+	position: relative;
+	float: right;
+	width: 79%;
+	height: 440px;
+	padding: 20px 0px 10px 0px;
+	border:none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+}
