@@ -1,0 +1,23 @@
+h2{
+	text-align: center;
+	font-size: 50px;
+	letter-spacing: 3px;
+	font-family: 'Lobster';
+}
+
+.titles{
+	padding-left: 10px;
+	font-size: 20px;
+	line-height: 1.4;
+}
+.content{
+	font-size: 17px;
+	line-height: 1.2;
+}
+
+a:visited{
+	text-decoration: none;
+}
+a:link{
+	text-decoration: none;
+}
