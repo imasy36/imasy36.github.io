@@ -2,6 +2,9 @@
 body{
 	/*background-color: #9399a3;*/
 }
+a:visited {
+  text-decoration: none;
+}
 /* Nav */
 nav li img{
 	height: 50px;
@@ -17,6 +20,8 @@ nav ul li{
 /* Frame */
 iframe{
 	border: none;
+	width: 100%;
+	height: 480px;
 }
 
 /* Footer */
