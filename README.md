@@ -1,4 +1,4 @@
-# imasy36.github.io  My Portfolio
+<center># My Portfolio</center>
   -with following details <br>
 Projects <br>
   Facebook : A web page with design similar to Facebook [ Basic HTML & CSS ]
@@ -16,6 +16,4 @@ Projects <br>
   
   Vigenere Cipher : implementation of Vigenere Cipher in Java.
  
-Education Background<br> 
-Accomplishments <br>  
-Resume <br>
+Education Background<br>Accomplishments <br> Resume <br>
