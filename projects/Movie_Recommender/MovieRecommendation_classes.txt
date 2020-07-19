@@ -1,0 +1,23 @@
+addWebRater.java - Reads webRater.csv and add Rater to ratings.csv
+	
+printRecommendations.java - convert recommended movies to HTML format
+
+Movie.java - Movie Database Unit
+
+inputRatings.java - Provides movies for input ratings
+
+RecommendationRunner.java - Recommends movies
+
+Recommender.java
+
+FourthRAtings.java
+
+RaterDatabase.java - Rater database
+
+MovieDatabase.java - Movie database
+
+FirstRatings.ajva
+
+EfficientRater.java
+
+Rater.java - Rater database Unit
