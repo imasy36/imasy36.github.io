@@ -1,6 +1,6 @@
 <center><h2>My Portfolio</h2></center>
   -with following details <br>
-Projects <br>
+  <h3>Projects</h3><br> 
   Facebook : A web page with design similar to Facebook [ Basic HTML & CSS ]
 
   GreenScreen : A visual effects technique for compositing (layering) two images. The technique has been used in many fields to remove a
