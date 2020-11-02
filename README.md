@@ -14,7 +14,7 @@
   
   <strong>Movie Recommender</strong> : it's a Movie recommender that takes input ratings of random movies of different genres [12] with at least 20 ratings and based on it recommends a maximum of    20 movies title.
   
- <strong> Vigenere Cipher<strong> : implementation of Vigenere Cipher in Java.
+ <strong> Vigenere Cipher</strong> : implementation of Vigenere Cipher in Java.
   
  <strong> Pneumonia detection using Densenet121</strong>: In this project, I'll use PyTorch to train a classifier to identify the presence of Pneumonia by looking
 at chest X-Ray images. This project will culminate in a model that can predict the presence of
