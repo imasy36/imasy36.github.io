@@ -1,4 +1,4 @@
-<center># My Portfolio</center>
+<center><h2>My Portfolio</h2></center>
   -with following details <br>
 Projects <br>
   Facebook : A web page with design similar to Facebook [ Basic HTML & CSS ]
