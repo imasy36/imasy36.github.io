@@ -5,7 +5,6 @@ var can2;
 
 function Iupload()
 {
-	alert("Iupload");
 	var file=document.getElementById("f1");
 	img1=new SimpleImage(file);
 	can1=document.getElementById("cn1");
@@ -16,7 +15,6 @@ function Iupload()
 
 function unhide()
 {
-	alert("Unhide");
 	for(var pix of img2.values())
 	{
 		pix.setGreen((pix.getGreen()%16)*16);
