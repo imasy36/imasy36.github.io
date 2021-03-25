@@ -1,5 +1,5 @@
 #My Portfolio
-  [Link to Portfolio..](imasy36.github.io) -with following details
+  [Link to Portfolio..](https://imasy36.github.io) -with following details
 
 ##Projects
   Facebook: A web page with design similar to Facebook [ Basic HTML & CSS ]
