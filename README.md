@@ -1,7 +1,7 @@
 # My Portfolio
   [Link to Portfolio..](https://imasy36.github.io) -with following details
 
-## Projects
+### Projects
   - Facebook: A web page with design similar to Facebook [ Basic HTML & CSS ]
 
   - GreenScreen: A visual effects technique for compositing (layering) two images. The technique has been used in many fields to remove a
@@ -21,4 +21,15 @@
 at chest X-Ray images. This project will culminate in a model that can predict the presence of
 pneumonia with human radiologist-level accuracy.
  
-<h3>Education Background<br>Accomplishments <br> Resume <br></h3>
+### Education Background
+ - 1OTH standard
+ - 12TH standard
+ - Undergraduation B.E computer science and Engineering
+
+### Accomplishments
+ * Python for everybody specialization - university of Michigan
+ * Java Specialization - Duke University
+ * IT Support Professional certificate - Google
+ * IT Automation Professional certificate** - Google 
+
+###  Resume 
