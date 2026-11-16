@@ -679,17 +679,24 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 
     </div>
 
-    <script>
-      window.submitted = false;
-      window.rsvpData = {};
+   <script>
+      // Paste your deployed Google Apps Script Web App URL here:
+      const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
-      function captureRSVPDetails() {
-        window.submitted = true;
+      async function submitRSVP(event) {
+        event.preventDefault();
+
+        const form = document.getElementById('rsvpForm');
+        const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('submitBtnText');
+
         const name = document.getElementById('fullName').value.trim();
+        const phone = document.getElementById('phoneNumber').value.trim();
         const guests = document.getElementById('guestCount').value;
         const rawTime = document.getElementById('arrivalTime').value;
+        const notes = document.getElementById('notes').value.trim();
 
-        // Format datetime-local (e.g., "2027-01-23T14:00") into a readable date & time
+        // Format readable arrival time
         let formattedTime = rawTime;
         if (rawTime) {
           const dateObj = new Date(rawTime);
@@ -704,46 +711,74 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
           });
         }
 
-        window.rsvpData = { name, guests, formattedTime };
-
-        // Optional: show loading state on button while Google registers the response
-        const btn = document.getElementById('submitBtn');
+        // Show loading state on button
         btn.disabled = true;
         btn.classList.add('opacity-75');
-      }
+        btnText.textContent = 'Sending RSVP...';
 
-      function showConfirmation() {
-        if (!window.submitted) return;
+        let isSuccess = false;
 
-        const form = document.getElementById('rsvpForm');
+        try {
+          const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify({
+              name: name,
+              phone: phone,
+              guests: guests,
+              arrivalTime: formattedTime,
+              notes: notes
+            })
+          });
+
+          const result = await response.json();
+          if (result.status === "success") {
+            isSuccess = true;
+          }
+        } catch (err) {
+          console.error('Submission error:', err);
+        }
+
+        // UI Elements
         const banner = document.getElementById('rsvpConfirmation');
+        const statusTitle = document.getElementById('rsvpStatusTitle');
         const summaryText = document.getElementById('rsvpSummaryText');
-        const { name, guests, formattedTime } = window.rsvpData;
-
         const guestLabel = parseInt(guests, 10) === 1 ? '1 guest' : `${guests} guests`;
 
-        summaryText.innerHTML = `
-          Thank you, <strong class="text-text-charcoal">${name}</strong>! 
-          We have noted your RSVP for <strong class="text-text-charcoal">${guestLabel}</strong> 
-          arriving on <strong class="text-text-charcoal">${formattedTime}</strong>. 
-          Your presence will make our wedding day truly memorable.
-        `;
+        if (isSuccess) {
+          statusTitle.textContent = 'RSVP Received with Joy!';
+          summaryText.innerHTML = `
+            Thank you, <strong class="text-text-charcoal">${name}</strong>! 
+            We have noted your RSVP for <strong class="text-text-charcoal">${guestLabel}</strong> 
+            arriving on <strong class="text-text-charcoal">${formattedTime}</strong>. 
+            Your presence will make our wedding day truly memorable. (A copy has also been emailed to us!)
+          `;
+        } else {
+          statusTitle.textContent = 'Submission Hiccup';
+          summaryText.innerHTML = `
+            We had trouble saving your RSVP automatically, <strong class="text-text-charcoal">${name}</strong>. 
+            Please check your internet connection and try submitting again.
+          `;
+          // Re-enable form so they can retry without refreshing
+          btn.disabled = false;
+          btn.classList.remove('opacity-75');
+          btnText.textContent = 'Send RSVP Confirmation';
+          return;
+        }
 
         form.classList.add('hidden');
         banner.classList.remove('hidden');
       }
 
       function resetRSVPForm() {
-        window.submitted = false;
-        window.rsvpData = {};
-
         const form = document.getElementById('rsvpForm');
         const banner = document.getElementById('rsvpConfirmation');
         const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('submitBtnText');
 
         form.reset();
         btn.disabled = false;
         btn.classList.remove('opacity-75');
+        btnText.textContent = 'Send RSVP Confirmation';
 
         banner.classList.add('hidden');
         form.classList.remove('hidden');
