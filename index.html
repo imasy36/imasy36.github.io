@@ -580,13 +580,8 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
             <!-- Hidden iframe to capture the Google Form submission response silently -->
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted) { showConfirmation(); }"></iframe>
             
-            <!-- Form configured to post to Google -->
-            <form id="rsvpForm" 
-                  action="https://docs.google.com/forms/d/e/1FAIpQLSf0BMuT3i7wN1d1hOkjDcLv9m1SluTtgQghf1FwM90LQ4oIbg/formResponse" 
-                  method="POST" 
-                  target="hidden_iframe" 
-                  onsubmit="captureRSVPDetails()" 
-                  class="space-y-4">
+            <!-- Form configured to post to Google appscript -->
+              <form id="rsvpForm" onsubmit="submitRSVP(event)" class="space-y-4">
             
               <!-- Full Name & Phone Number Grid -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
