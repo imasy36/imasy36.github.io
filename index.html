@@ -577,81 +577,78 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 
           <!-- Right Form Panel -->
           <div class="lg:col-span-7 p-5 sm:p-6 lg:p-8">
-            <form id="rsvpForm" class="space-y-4" onsubmit="event.preventDefault(); showConfirmation();">
-
-              <!-- Full Name & Phone Number Grid (Side-by-side on sm+) -->
+            <!-- Hidden iframe to capture the Google Form submission response silently -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted) { showConfirmation(); }"></iframe>
+            
+            <!-- Form configured to post to Google -->
+            <form id="rsvpForm" 
+                  action="https://docs.google.com/forms/d/e/1FAIpQLSf0BMuT3i7wN1d1hOkjDcLv9m1SluTtgQghf1FwM90LQ4oIbg/formResponse" 
+                  method="POST" 
+                  target="hidden_iframe" 
+                  onsubmit="captureRSVPDetails()" 
+                  class="space-y-4">
+            
+              <!-- Full Name & Phone Number Grid -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                
                 <!-- Full Name -->
                 <div>
                   <label for="fullName" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
                     Your Full Name <span class="text-vermillion">*</span>
                   </label>
                   <div class="relative">
-                    <input type="text" id="fullName" name="fullName" required placeholder="e.g. Ramesh &amp; Family" class="w-full px-3.5 py-2.5 pr-9 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400">
+                    <input type="text" id="fullName" name="entry.461883848" required placeholder="e.g. Ramesh &amp; Family" class="w-full px-3.5 py-2.5 pr-9 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400">
                     <span class="material-symbols-outlined absolute right-3 top-2.5 text-gray-400 text-sm pointer-events-none">person</span>
                   </div>
                 </div>
-
+            
                 <!-- Phone Number -->
                 <div>
                   <label for="phoneNumber" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
                     Phone Number <span class="text-vermillion">*</span>
                   </label>
                   <div class="relative">
-                    <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="+91 98765 43210" class="w-full px-3.5 py-2.5 pr-9 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400">
+                    <input type="tel" id="phoneNumber" name="entry.1705510671" required placeholder="+91 98765 43210" class="w-full px-3.5 py-2.5 pr-9 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400">
                     <span class="material-symbols-outlined absolute right-3 top-2.5 text-gray-400 text-sm pointer-events-none">call</span>
                   </div>
                 </div>
               </div>
-
+            
               <!-- Number of Guests & Estimated Arrival Time Grid -->
               <div class="grid grid-cols-2 gap-3 sm:gap-3.5">
-
+            
                 <!-- Number of Guests -->
                 <div>
                   <label for="guestCount" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
                     Number of Guests <span class="text-vermillion">*</span>
                   </label>
                   <div class="relative">
-                    <select id="guestCount" name="guestCount" required class="w-full px-3 py-2.5 pr-8 text-[13px] font-body bg-[#FAF8F5] bg-none border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold appearance-none text-text-charcoal">
-                      <option value="1">1 Person</option>
-                      <option value="2" selected>2 Persons</option>
-                      <option value="3">3 Persons</option>
-                      <option value="4">4 Persons</option>
-                      <option value="5+">5+ Persons</option>
-                    </select>
+                    <input type="number" id="guestCount" name="entry.1372883054" value="2" min="1" required class="w-full px-3 py-2.5 pr-8 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold text-text-charcoal" />
                     <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-gray-400 text-sm pointer-events-none">group</span>
                   </div>
                 </div>
-
+            
                 <!-- Arrival Time -->
                 <div>
                   <label for="arrivalTime" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
                     Arrival Time <span class="text-vermillion">*</span>
                   </label>
                   <div class="relative">
-                    <select id="arrivalTime" name="arrivalTime" required class="w-full px-3 py-2.5 pr-8 text-[13px] font-body bg-[#FAF8F5] bg-none border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold appearance-none text-text-charcoal">
-                      <option value="Day 1 Morning (Poojan)">Day 1: 07:00 AM</option>
-                      <option value="Day 1 Afternoon (Mehendi)" selected>Day 1: 02:00 PM</option>
-                      <option value="Day 1 Evening (Sangeet)">Day 1: 06:00 PM</option>
-                      <option value="Day 2 Morning (Haldi)">Day 2: 09:00 AM</option>
-                      <option value="Day 2 Afternoon (Barat)">Day 2: 12:00 PM</option>
-                      <option value="Day 2 Evening (Phere &amp; Dinner)">Day 2: 06:00 PM</option>
-                    </select>
+                    <input type="datetime-local" id="arrivalTime" name="entry.1583289347" required class="w-full px-3 py-2.5 pr-8 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold text-text-charcoal" />
                     <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-gray-400 text-sm pointer-events-none">schedule</span>
                   </div>
                 </div>
-
+            
               </div>
-
+            
               <!-- Notes / Wishes / Dietary Needs -->
               <div>
                 <label for="notes" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
                   Notes &amp; Warm Wishes
                 </label>
-                <textarea id="notes" name="notes" rows="3" placeholder="Share dietary preferences, travel notes, or warm wishes for Anjali &amp; Avinash..." class="w-full px-3.5 py-2.5 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400 resize-none"></textarea>
+                <textarea id="notes" name="entry.334109345" rows="3" placeholder="Share dietary preferences, travel notes, or warm wishes for Anjali &amp; Avinash..." class="w-full px-3.5 py-2.5 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400 resize-none"></textarea>
               </div>
-
+            
               <!-- Submit Button -->
               <div class="pt-1">
                 <button type="submit" id="submitBtn" class="w-full py-3 px-5 bg-light-primary hover:bg-[#721E2A] text-white font-label text-[13px] font-semibold rounded-full shadow-md transition duration-200 flex items-center justify-center gap-2 group cursor-pointer">
@@ -659,7 +656,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                   <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">send</span>
                 </button>
               </div>
-
+            
             </form>
 
             <!-- Dynamic Success Confirmation Banner -->
@@ -668,7 +665,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                 <span class="material-symbols-outlined text-2xl">check_circle</span>
               </div>
               <h4 class="font-headline text-[17px] font-semibold text-text-charcoal">RSVP Received with Joy!</h4>
-              <p class="font-body text-[13px] text-text-muted mt-1.5 max-w-md mx-auto" id="rsvpSummaryText">
+              <p class="font-body text-[13px] text-text-muted mt-1.5 max-w-md mx-auto leading-relaxed" id="rsvpSummaryText">
                 Thank you! Your presence will make our wedding day truly memorable.
               </p>
               <button type="button" onclick="resetRSVPForm()" class="mt-4 text-[12px] text-vermillion font-medium underline hover:text-text-charcoal cursor-pointer">
@@ -682,6 +679,76 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 
     </div>
 
+    <script>
+      window.submitted = false;
+      window.rsvpData = {};
+
+      function captureRSVPDetails() {
+        window.submitted = true;
+        const name = document.getElementById('fullName').value.trim();
+        const guests = document.getElementById('guestCount').value;
+        const rawTime = document.getElementById('arrivalTime').value;
+
+        // Format datetime-local (e.g., "2027-01-23T14:00") into a readable date & time
+        let formattedTime = rawTime;
+        if (rawTime) {
+          const dateObj = new Date(rawTime);
+          formattedTime = dateObj.toLocaleString('en-IN', {
+            weekday: 'short',
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+          });
+        }
+
+        window.rsvpData = { name, guests, formattedTime };
+
+        // Optional: show loading state on button while Google registers the response
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.classList.add('opacity-75');
+      }
+
+      function showConfirmation() {
+        if (!window.submitted) return;
+
+        const form = document.getElementById('rsvpForm');
+        const banner = document.getElementById('rsvpConfirmation');
+        const summaryText = document.getElementById('rsvpSummaryText');
+        const { name, guests, formattedTime } = window.rsvpData;
+
+        const guestLabel = parseInt(guests, 10) === 1 ? '1 guest' : `${guests} guests`;
+
+        summaryText.innerHTML = `
+          Thank you, <strong class="text-text-charcoal">${name}</strong>! 
+          We have noted your RSVP for <strong class="text-text-charcoal">${guestLabel}</strong> 
+          arriving on <strong class="text-text-charcoal">${formattedTime}</strong>. 
+          Your presence will make our wedding day truly memorable.
+        `;
+
+        form.classList.add('hidden');
+        banner.classList.remove('hidden');
+      }
+
+      function resetRSVPForm() {
+        window.submitted = false;
+        window.rsvpData = {};
+
+        const form = document.getElementById('rsvpForm');
+        const banner = document.getElementById('rsvpConfirmation');
+        const btn = document.getElementById('submitBtn');
+
+        form.reset();
+        btn.disabled = false;
+        btn.classList.remove('opacity-75');
+
+        banner.classList.add('hidden');
+        form.classList.remove('hidden');
+      }
+    </script>
     <!-- Footer: Sacred Blessing & Quick Navigation -->
     <footer class="mt-4 pt-5 pb-7 px-6 sm:px-10 bg-[#FAF5EE] border-t border-border-soft text-center text-text-muted">
       <div class="flex justify-center items-center gap-2 text-gold text-xs mb-1.5">
