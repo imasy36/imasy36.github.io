@@ -577,9 +577,6 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 
           <!-- Right Form Panel -->
           <div class="lg:col-span-7 p-5 sm:p-6 lg:p-8">
-            <!-- Hidden iframe to capture the Google Form submission response silently -->
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted) { showConfirmation(); }"></iframe>
-            
             <!-- Form configured to post to Google appscript -->
               <form id="rsvpForm" onsubmit="submitRSVP(event)" class="space-y-4">
             
@@ -647,7 +644,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
               <!-- Submit Button -->
               <div class="pt-1">
                 <button type="submit" id="submitBtn" class="w-full py-3 px-5 bg-light-primary hover:bg-[#721E2A] text-white font-label text-[13px] font-semibold rounded-full shadow-md transition duration-200 flex items-center justify-center gap-2 group cursor-pointer">
-                  <span>Send RSVP Confirmation</span>
+                  <<span id="submitBtnText">Send RSVP Confirmation</span>
                   <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">send</span>
                 </button>
               </div>
@@ -659,7 +656,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
               <div class="w-11 h-11 rounded-full bg-emerald/20 text-emerald flex items-center justify-center mx-auto mb-2.5">
                 <span class="material-symbols-outlined text-2xl">check_circle</span>
               </div>
-              <h4 class="font-headline text-[17px] font-semibold text-text-charcoal">RSVP Received with Joy!</h4>
+              <h4 id="rsvpStatusTitle" class="font-headline text-[17px] font-semibold text-text-charcoal">RSVP Received with Joy!</h4>
               <p class="font-body text-[13px] text-text-muted mt-1.5 max-w-md mx-auto leading-relaxed" id="rsvpSummaryText">
                 Thank you! Your presence will make our wedding day truly memorable.
               </p>
@@ -673,112 +670,6 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       </section>
 
     </div>
-
-   <script>
-      // Paste your deployed Google Apps Script Web App URL here:
-      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWe6PmbVjUCSElh-UawzrztA5aGwVtH6lmhNnTLrG_yuDZuRh-3voYUlhVN--fHQDMgA/exec";
-
-      async function submitRSVP(event) {
-        event.preventDefault();
-
-        const form = document.getElementById('rsvpForm');
-        const btn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('submitBtnText');
-
-        const name = document.getElementById('fullName').value.trim();
-        const phone = document.getElementById('phoneNumber').value.trim();
-        const guests = document.getElementById('guestCount').value;
-        const rawTime = document.getElementById('arrivalTime').value;
-        const notes = document.getElementById('notes').value.trim();
-
-        // Format readable arrival time
-        let formattedTime = rawTime;
-        if (rawTime) {
-          const dateObj = new Date(rawTime);
-          formattedTime = dateObj.toLocaleString('en-IN', {
-            weekday: 'short',
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-          });
-        }
-
-        // Show loading state on button
-        btn.disabled = true;
-        btn.classList.add('opacity-75');
-        btnText.textContent = 'Sending RSVP...';
-
-        let isSuccess = false;
-
-        try {
-          const response = await fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify({
-              name: name,
-              phone: phone,
-              guests: guests,
-              arrivalTime: formattedTime,
-              notes: notes
-            })
-          });
-
-          const result = await response.json();
-          if (result.status === "success") {
-            isSuccess = true;
-          }
-        } catch (err) {
-          console.error('Submission error:', err);
-        }
-
-        // UI Elements
-        const banner = document.getElementById('rsvpConfirmation');
-        const statusTitle = document.getElementById('rsvpStatusTitle');
-        const summaryText = document.getElementById('rsvpSummaryText');
-        const guestLabel = parseInt(guests, 10) === 1 ? '1 guest' : `${guests} guests`;
-
-        if (isSuccess) {
-          statusTitle.textContent = 'RSVP Received with Joy!';
-          summaryText.innerHTML = `
-            Thank you, <strong class="text-text-charcoal">${name}</strong>! 
-            We have noted your RSVP for <strong class="text-text-charcoal">${guestLabel}</strong> 
-            arriving on <strong class="text-text-charcoal">${formattedTime}</strong>. 
-            Your presence will make our wedding day truly memorable. (A copy has also been emailed to us!)
-          `;
-        } else {
-          statusTitle.textContent = 'Submission Hiccup';
-          summaryText.innerHTML = `
-            We had trouble saving your RSVP automatically, <strong class="text-text-charcoal">${name}</strong>. 
-            Please check your internet connection and try submitting again.
-          `;
-          // Re-enable form so they can retry without refreshing
-          btn.disabled = false;
-          btn.classList.remove('opacity-75');
-          btnText.textContent = 'Send RSVP Confirmation';
-          return;
-        }
-
-        form.classList.add('hidden');
-        banner.classList.remove('hidden');
-      }
-
-      function resetRSVPForm() {
-        const form = document.getElementById('rsvpForm');
-        const banner = document.getElementById('rsvpConfirmation');
-        const btn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('submitBtnText');
-
-        form.reset();
-        btn.disabled = false;
-        btn.classList.remove('opacity-75');
-        btnText.textContent = 'Send RSVP Confirmation';
-
-        banner.classList.add('hidden');
-        form.classList.remove('hidden');
-      }
-    </script>
     <!-- Footer: Sacred Blessing & Quick Navigation -->
     <footer class="mt-4 pt-5 pb-7 px-6 sm:px-10 bg-[#FAF5EE] border-t border-border-soft text-center text-text-muted">
       <div class="flex justify-center items-center gap-2 text-gold text-xs mb-1.5">
@@ -809,27 +700,88 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
     </footer>
 
   </main>
-
   <script>
-    function showConfirmation() {
-      const name = document.getElementById('fullName').value.trim();
-      const guests = document.getElementById('guestCount').value;
-      const time = document.getElementById('arrivalTime').value;
-
+    // Your deployed Google Apps Script Web App URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWe6PmbVjUCSElh-UawzrztA5aGwVtH6lmhNnTLrG_yuDZuRh-3voYUlhVN--fHQDMgA/exec";
+    async function submitRSVP(event) {
+      event.preventDefault();
+    
+      const form = document.getElementById('rsvpForm');
+      const btn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('submitBtnText');
+      const banner = document.getElementById('rsvpConfirmation');
+      const statusTitle = document.getElementById('rsvpStatusTitle');
       const summaryText = document.getElementById('rsvpSummaryText');
-      summaryText.textContent = `Thank you ${name}! We have noted ${guests} guest(s) arriving around ${time}. Looking forward to seeing you!`;
-
-      document.getElementById('rsvpForm').classList.add('hidden');
-      document.getElementById('rsvpConfirmation').classList.remove('hidden');
+    
+      const name = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phoneNumber').value.trim();
+      const guests = parseInt(document.getElementById('guestCount').value, 10);
+      const rawTime = document.getElementById('arrivalTime').value;
+      const notes = document.getElementById('notes').value.trim();
+    
+      const formattedTime = rawTime
+        ? new Date(rawTime).toLocaleString('en-IN', {
+            weekday: 'short', day: 'numeric', month: 'short', year: 'numeric',
+            hour: '2-digit', minute: '2-digit', hour12: true
+          })
+        : '';
+    
+      // Loading state
+      btn.disabled = true;
+      btn.classList.add('opacity-75');
+      btnText.textContent = 'Sending RSVP...';
+    
+      let isSuccess = false;
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          // No custom headers: keeps this a "simple" request (no CORS preflight),
+          // which Apps Script web apps require.
+          body: JSON.stringify({ name, phone, guests, arrivalTime: formattedTime, notes })
+        });
+        const result = await response.json();
+        isSuccess = result.status === 'success';
+      } catch (err) {
+        console.error('Submission error:', err);
+      }
+    
+      if (!isSuccess) {
+        statusTitle.textContent = 'Submission Hiccup';
+        summaryText.textContent =
+          `We had trouble saving your RSVP, ${name}. Please check your connection and try again.`;
+        banner.classList.remove('hidden');      // show the error to the guest
+        btn.disabled = false;
+        btn.classList.remove('opacity-75');
+        btnText.textContent = 'Send RSVP Confirmation';
+        return;
+      }
+    
+      statusTitle.textContent = 'RSVP Received with Joy!';
+      summaryText.textContent =
+        `Thank you, ${name}! We've noted ${guests === 1 ? '1 guest' : guests + ' guests'}` +
+        ` arriving ${formattedTime}. Your presence will make our wedding day truly memorable.`;
+    
+      form.classList.add('hidden');
+      banner.classList.remove('hidden');
     }
-
+    
     function resetRSVPForm() {
-      document.getElementById('rsvpForm').reset();
-      document.getElementById('rsvpForm').classList.remove('hidden');
-      document.getElementById('rsvpConfirmation').classList.add('hidden');
+      const form = document.getElementById('rsvpForm');
+      const banner = document.getElementById('rsvpConfirmation');
+      const btn = document.getElementById('submitBtn');
+    
+      form.reset();
+      btn.disabled = false;
+      btn.classList.remove('opacity-75');
+      document.getElementById('submitBtnText').textContent = 'Send RSVP Confirmation';
+    
+      banner.classList.add('hidden');
+      form.classList.remove('hidden');
     }
-
-    // Live Countdown to Wedding Day 1 (23rd January 2027, 07:00 AM IST)
+    
+    // ---------------------------------------------------------------------
+    // Live countdown to Day 1 (23 Jan 2027, 07:00 AM IST)
+    // ---------------------------------------------------------------------
     (function initCountdown() {
       const weddingTime = new Date('2027-01-23T07:00:00+05:30').getTime();
       const container = document.getElementById('weddingCountdown');
@@ -837,48 +789,51 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       const hoursEl = document.getElementById('cd-hours');
       const minsEl = document.getElementById('cd-mins');
       const secsEl = document.getElementById('cd-secs');
-
+    
       function updateCountdown() {
         const diff = weddingTime - Date.now();
         if (diff <= 0) {
           container.innerHTML = '<span class="px-3.5 py-1.5 rounded-full bg-gold-light/70 border border-gold/40 font-headline text-[13px] text-vermillion font-semibold">The Wedding Celebrations Have Begun!</span>';
+          clearInterval(timer);
           return;
         }
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
         const mins = Math.floor((diff / (1000 * 60)) % 60);
         const secs = Math.floor((diff / 1000) % 60);
-
+    
         daysEl.textContent = String(days);
         hoursEl.textContent = String(hours).padStart(2, '0');
         minsEl.textContent = String(mins).padStart(2, '0');
         secsEl.textContent = String(secs).padStart(2, '0');
       }
-
+    
+      const timer = setInterval(updateCountdown, 1000);
       updateCountdown();
-      setInterval(updateCountdown, 1000);
     })();
-
-    // Active Top Navigation Highlighting + Side-by-Side Day Spotlight
+    
+    // ---------------------------------------------------------------------
+    // Active nav highlighting + side-by-side day spotlight
+    // ---------------------------------------------------------------------
     (function initNavInteractions() {
       const navLinks = document.querySelectorAll('.nav-link');
       let preferredDay = 'day-1';
-
+    
       function setActiveNav(targetId) {
         navLinks.forEach((link) => {
           link.classList.toggle('nav-pill-active', link.dataset.navTarget === targetId);
         });
       }
-
+    
       function spotlightCard(id) {
         const card = document.getElementById(id);
         if (!card) return;
         card.classList.remove('card-spotlight');
-        void card.offsetWidth; // trigger reflow to replay animation
+        void card.offsetWidth; // reflow so the animation replays
         card.classList.add('card-spotlight');
         setTimeout(() => card.classList.remove('card-spotlight'), 1300);
       }
-
+    
       navLinks.forEach((link) => {
         link.addEventListener('click', () => {
           const targetId = link.dataset.navTarget;
@@ -889,34 +844,30 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
           setActiveNav(targetId);
         });
       });
-
+    
       const sections = ['day-1', 'day-2', 'venue', 'rsvp-section'];
       function onScroll() {
         const scrollPos = window.scrollY + 130;
         const isSideBySide = window.innerWidth >= 768;
         let current = '';
-
+    
         for (const id of sections) {
           const el = document.getElementById(id);
           if (!el) continue;
-          if (scrollPos >= el.offsetTop) {
-            current = id;
-          }
+          if (scrollPos >= el.offsetTop) current = id;
         }
-
-        // On wider screens Day 1 and Day 2 share the same vertical position
+    
+        // On wide screens Day 1 and Day 2 share the same vertical position
         if (isSideBySide && (current === 'day-1' || current === 'day-2')) {
           current = preferredDay;
         }
-
         setActiveNav(current);
       }
-
+    
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll, { passive: true });
       onScroll();
     })();
   </script>
-
 </body>
 </html>
