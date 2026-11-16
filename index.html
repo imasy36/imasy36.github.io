@@ -1,86 +1,825 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 <head>
-	<title>Avinash singh yadav | Portfolio</title>
-	<link rel="icon" type="image/jpg/png" href="images/img.png">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<body>
-	<nav class>
-		<div>
-			<ul>
-			<div style="float:left;">
-				<li> <img src="images/logo.png"> </li>
-			</div>
-			<div style="float: right;">
-				<li align="right">
-					<a href="homepage.html" target="zone">Home</a>
-				</li>
-				<li>
-					<a href="projects.html" target="zone">Projects</a>
-				</li>
-				<li>
-					<a href="education.html" target="zone">Education</a>
-				</li>
-				<li>
-					<a href="accomplishments.html" target="zone">Accomplishments</a>
-				</li>
-				<li>
-					<a href="data/resume.pdf" target="zone">Resume</a>
-				</li>
-				<li>
-					<a href="personal.html" target="zone">About</a>
-				</li>
-			</div>
-		</ul>
-		</div>
-	</nav>
-	<iframe src="homepage.html" name="zone"></iframe>
-	<footer width="100%">
-		<center>
-			<div>
-				<p>
-					&copy; Portfolio | imasy36  made with <i style="color:red">&#9829;</i> in India &nbsp; &nbsp;
-					Contact : imasy36@gmail.com | +91-7389041369
-				</p>
-				<ul>
-					<li>
-						<a href="mailto:imasy36@gmail.com">
-							<img src="images/social media/help.png">	
-						</a>
-					</li>
-					<li> 
-						<a href="https://www.facebook.com/imasy36" target="_blank">
-							<img src="images/social media/facebook.png">	
-						</a>
-					</li>
-					<li>
-						<a href="https://www.twitter.com/imasy36" target="_blank">
-							<img src="images/social media/twitter.png">	
-						</a>
-					</li>
-					<li>
-						<a href="https://www.instagram.com/imasy36" target="_blank">
-							<img src="images/social media/instagram.png">	
-						</a>
-					</li>
-					<li>
-						<a href="https://www.linkedin.com/in/imasy36/" target="_blank">
-							<img src="images/social media/linkedin.png">	
-						</a>
-					</li>
-					<li>
-						<a href="https://www.github.com/imasy36/" target="_blank">
-							<img src="images/github.png">	
-						</a>
-					</li>
-					<li>
-						<a href="https://www.hackerrank.com/imasy36/" target="_blank">
-							<img src="images/hackerrank-logo.png">	
-						</a>
-					</li>
-				</ul>
-			</div>
-		</center>
-	</footer>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anjali &amp; Avinash — Wedding Celebrations &amp; RSVP</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'gold': '#C59B27',
+        'gold-light': '#F7EFC8',
+        'emerald': '#2D5A43',
+        'vermillion': '#9E2A2B',
+        'blush': '#FAF3EE',
+        'ivory': '#FFFDF9',
+        'border-soft': '#E8DACD',
+        'text-charcoal': '#2B2625',
+        'text-muted': '#6B5E59',
+        'light-primary': '#8B2635',
+        'light-on-primary': '#FFFFFF',
+        'light-surface': '#FAF3EE',
+        'light-on-surface': '#2B2625',
+        'dark-primary': '#E07A5F',
+        'dark-on-primary': '#1D1B20',
+        'dark-surface': '#231F20',
+        'dark-on-surface': '#F4F1DE',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'md': '8px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'container-p': '20px',
+        'card-gap': '16px',
+        'timeline-gap': '12px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Montserrat"', 'sans-serif'],
+        'body': ['"Montserrat"', 'sans-serif'],
+        'label': ['"Montserrat"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['32px', { lineHeight: '40px', fontWeight: '600' }],
+        'display-md': ['28px', { lineHeight: '36px', fontWeight: '600' }],
+        'headline-lg': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+        'headline-md': ['20px', { lineHeight: '28px', fontWeight: '600' }],
+        'headline-sm': ['18px', { lineHeight: '26px', fontWeight: '600' }],
+        'title-lg': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'title-md': ['14px', { lineHeight: '20px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-md': ['13px', { lineHeight: '20px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+        'label-md': ['11px', { lineHeight: '16px', fontWeight: '600' }],
+        'label-sm': ['10px', { lineHeight: '14px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'fast': '150ms',
+        'normal': '250ms',
+      },
+      transitionTimingFunction: {
+        'fast': 'ease-out',
+        'normal': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block; width: 1em; height: 1em; line-height: 1 !important;
+      box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle;
+    }
+    .font-script { font-family: 'Great Vibes', cursive; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 300ms ease-out forwards;
+    }
+
+    @keyframes cardSpotlight {
+      0% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.55); }
+      45% { box-shadow: 0 0 0 6px rgba(197, 155, 39, 0.25); }
+      100% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0); }
+    }
+    .card-spotlight {
+      animation: cardSpotlight 1.2s ease-out;
+      border-color: #C59B27 !important;
+    }
+
+    .nav-pill-active {
+      background-color: #F7EFC8;
+      color: #9E2A2B;
+      border-color: rgba(197, 155, 39, 0.55);
+    }
+  </style>
+</head>
+<body class="bg-[#F8F2EB] text-text-charcoal min-h-screen flex justify-center p-0 m-0 font-body antialiased selection:bg-gold-light">
+
+  <!-- Responsive Invitation Shell (Mobile card -> Spacious Laptop/Desktop spread) -->
+  <main id="top" class="w-full max-w-[1120px] bg-ivory min-h-screen relative overflow-x-clip shadow-2xl flex flex-col border-x border-[#EFE5D8]">
+
+    <!-- Sticky Top Navigation Bar -->
+    <nav aria-label="Wedding sections" class="sticky top-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-border-soft/90 shadow-sm">
+      <div class="px-3 sm:px-6 lg:px-10 py-2.5 flex items-center justify-between gap-2">
+        <!-- Brand Monogram / Title (Visible from small tablets upwards) -->
+        <a href="#top" class="hidden sm:flex items-center gap-2.5 shrink-0 group">
+          <span class="font-script text-[24px] md:text-[28px] text-vermillion leading-none group-hover:text-light-primary transition-colors">
+            Anjali &amp; Avinash
+          </span>
+          <span class="hidden lg:inline-block text-[10px] font-label uppercase tracking-[0.18em] text-gold border-l border-gold/40 pl-2.5">
+            23–24 Jan 2027
+          </span>
+        </a>
+
+        <!-- Easy Nav Links: Day 1, Day 2, Venue, RSVP -->
+        <div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2">
+          <a href="#day-1" data-nav-target="day-1" class="nav-link flex-1 sm:flex-none inline-flex items-center justify-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full border border-transparent text-[11px] sm:text-[12px] font-label font-semibold text-text-charcoal hover:bg-gold-light/60 hover:text-vermillion transition-colors whitespace-nowrap">
+            <span class="material-symbols-outlined text-[14px] text-vermillion hidden sm:inline-block">local_florist</span>
+            <span>Day 1</span>
+          </a>
+
+          <a href="#day-2" data-nav-target="day-2" class="nav-link flex-1 sm:flex-none inline-flex items-center justify-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full border border-transparent text-[11px] sm:text-[12px] font-label font-semibold text-text-charcoal hover:bg-gold-light/60 hover:text-vermillion transition-colors whitespace-nowrap">
+            <span class="material-symbols-outlined text-[14px] text-gold hidden sm:inline-block">celebration</span>
+            <span>Day 2</span>
+          </a>
+
+          <a href="#venue" data-nav-target="venue" class="nav-link flex-1 sm:flex-none inline-flex items-center justify-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full border border-transparent text-[11px] sm:text-[12px] font-label font-semibold text-text-charcoal hover:bg-gold-light/60 hover:text-vermillion transition-colors whitespace-nowrap">
+            <span class="material-symbols-outlined text-[14px] text-emerald hidden sm:inline-block">pin_drop</span>
+            <span>Venue</span>
+          </a>
+
+          <a href="#rsvp-section" data-nav-target="rsvp-section" class="nav-link-rsvp flex-1 sm:flex-none inline-flex items-center justify-center gap-1 px-3 sm:px-4 py-1.5 rounded-full bg-light-primary hover:bg-[#721E2A] text-white text-[11px] sm:text-[12px] font-label font-semibold shadow-sm transition-colors whitespace-nowrap">
+            <span class="material-symbols-outlined text-[14px] hidden sm:inline-block">edit_note</span>
+            <span>RSVP</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Header: Top Hanging Garland, Invocation & Couple Spotlight -->
+    <header class="relative w-full overflow-hidden select-none pt-5 pb-6 md:pt-8 md:pb-10 px-5 sm:px-8 lg:px-10 bg-gradient-to-b from-[#FAF4EC] via-[#FCF8F2] to-ivory border-b border-border-soft/50">
+      <!-- Hanging Garland Visuals (Scales naturally for wider screens) -->
+      <div class="absolute top-0 inset-x-0 flex justify-between px-5 sm:px-8 lg:px-12 opacity-75 pointer-events-none">
+        <div class="w-1.5 h-16 bg-gradient-to-b from-emerald/40 via-gold/50 to-pink-200/60 rounded-full"></div>
+        <div class="w-1.5 h-20 bg-gradient-to-b from-emerald/50 via-gold/60 to-pink-300/70 rounded-full"></div>
+        <div class="w-1.5 h-12 bg-gradient-to-b from-emerald/40 via-gold/40 to-pink-200/50 rounded-full"></div>
+        <div class="hidden md:block w-1.5 h-20 bg-gradient-to-b from-emerald/45 via-gold/55 to-pink-200/65 rounded-full"></div>
+        <div class="hidden lg:block w-1.5 h-14 bg-gradient-to-b from-emerald/40 via-gold/45 to-amber-200/60 rounded-full"></div>
+        <div class="w-2 h-[72px] bg-gradient-to-b from-gold/50 via-amber-200 to-pink-200 rounded-full"></div>
+        <div class="hidden lg:block w-1.5 h-14 bg-gradient-to-b from-emerald/40 via-gold/45 to-amber-200/60 rounded-full"></div>
+        <div class="hidden md:block w-1.5 h-20 bg-gradient-to-b from-emerald/45 via-gold/55 to-pink-200/65 rounded-full"></div>
+        <div class="w-1.5 h-12 bg-gradient-to-b from-emerald/40 via-gold/40 to-pink-200/50 rounded-full"></div>
+        <div class="w-1.5 h-20 bg-gradient-to-b from-emerald/50 via-gold/60 to-pink-300/70 rounded-full"></div>
+        <div class="w-1.5 h-16 bg-gradient-to-b from-emerald/40 via-gold/50 to-pink-200/60 rounded-full"></div>
+      </div>
+
+      <!-- Responsive 2-Column Hero Grid on Laptop/Desktop -->
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center pt-5 md:pt-6">
+
+        <!-- Sacred Invocation & Couple Title -->
+        <div class="lg:col-span-6 text-center lg:text-left">
+          <div class="inline-flex items-center justify-center lg:justify-start gap-2 mb-2.5 text-vermillion">
+            <span class="w-8 h-px bg-gold/50"></span>
+            <span class="font-headline text-[13px] md:text-[14px] tracking-widest uppercase">॥ श्री गणेशाय नमः ॥</span>
+            <span class="w-8 h-px bg-gold/50"></span>
+          </div>
+
+          <h1 class="font-script text-[44px] sm:text-[54px] lg:text-[62px] leading-tight text-text-charcoal font-normal">
+            Anjali &amp; Avinash
+          </h1>
+          <p class="font-title text-[11px] sm:text-[12px] uppercase tracking-[0.25em] text-gold font-semibold -mt-1 mb-2.5">
+            Together With Their Families
+          </p>
+          <p class="font-headline text-[14px] sm:text-[16px] text-text-charcoal italic max-w-md mx-auto lg:mx-0 text-balance">
+            Invite you to celebrate their sacred union &amp; joyous festivities
+          </p>
+
+          <!-- Quick Summary Badge -->
+          <div class="mt-4 inline-flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 px-3.5 py-1.5 rounded-full bg-gold-light/60 border border-gold/40 text-[11px] sm:text-[12px] font-semibold text-text-charcoal">
+            <span class="material-symbols-outlined text-gold text-sm">calendar_month</span>
+            <span>23rd &amp; 24th January 2027</span>
+            <span class="text-gold">•</span>
+            <span>Praveg Resort, Silvassa</span>
+          </div>
+
+          <!-- Dynamic Live Countdown -->
+          <div id="weddingCountdown" class="mt-4 flex items-center justify-center lg:justify-start gap-2 sm:gap-2.5 select-text">
+            <div class="min-w-[58px] sm:min-w-[66px] px-2.5 py-1.5 rounded-md bg-white/85 border border-border-soft shadow-sm text-center">
+              <span id="cd-days" class="block font-headline text-[16px] sm:text-[18px] font-semibold text-vermillion tabular-nums leading-tight">--</span>
+              <span class="block font-label text-[9px] uppercase tracking-wider text-text-muted">Days</span>
+            </div>
+            <div class="min-w-[58px] sm:min-w-[66px] px-2.5 py-1.5 rounded-md bg-white/85 border border-border-soft shadow-sm text-center">
+              <span id="cd-hours" class="block font-headline text-[16px] sm:text-[18px] font-semibold text-text-charcoal tabular-nums leading-tight">--</span>
+              <span class="block font-label text-[9px] uppercase tracking-wider text-text-muted">Hours</span>
+            </div>
+            <div class="min-w-[58px] sm:min-w-[66px] px-2.5 py-1.5 rounded-md bg-white/85 border border-border-soft shadow-sm text-center">
+              <span id="cd-mins" class="block font-headline text-[16px] sm:text-[18px] font-semibold text-text-charcoal tabular-nums leading-tight">--</span>
+              <span class="block font-label text-[9px] uppercase tracking-wider text-text-muted">Mins</span>
+            </div>
+            <div class="min-w-[58px] sm:min-w-[66px] px-2.5 py-1.5 rounded-md bg-white/85 border border-border-soft shadow-sm text-center">
+              <span id="cd-secs" class="block font-headline text-[16px] sm:text-[18px] font-semibold text-gold tabular-nums leading-tight">--</span>
+              <span class="block font-label text-[9px] uppercase tracking-wider text-text-muted">Secs</span>
+            </div>
+          </div>
+
+          <!-- Quick Actions (Desktop) -->
+          <div class="hidden lg:flex items-center gap-3 mt-5">
+            <a href="#rsvp-section" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-light-primary hover:bg-[#721E2A] text-white font-label text-[12px] font-semibold shadow-sm transition-colors">
+              <span>RSVP Now</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="#day-1" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white/90 hover:bg-gold-light/60 text-text-charcoal border border-gold/40 font-label text-[12px] font-semibold transition-colors">
+              <span class="material-symbols-outlined text-sm text-gold">event_note</span>
+              <span>View Itinerary</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Couple Celebration Illustration Spotlight -->
+        <div class="lg:col-span-6">
+          <div class="relative w-full h-48 sm:h-64 lg:h-[340px] rounded-xl overflow-hidden border border-gold/35 shadow-md bg-[#FCF8F3]">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCwzAeQkfszB8nJ9JPKc1zq9qag7s0L0nUAgJEe7kmrbpH4KriGgrzm03JXxBiNIoccdxueCT2GtHMimSa5CWe81aiMz-aRoH5KfqUE06rjpzoLuQip9Wgpf5cLyKulGymZhydWKNQaPlkGol_S36lHQ_3v8E5K8JoTB3k3o-hyBEIWnvaDZnCKPGbxeA05amvyOesMsiuO8indP3SldPcduHLQFNZ41hBg0-og621DDc5b7r30xD7KZuGsJPrKSEE" alt="Anjali and Avinash celebrating Indian Wedding" class="w-full h-full object-cover object-top">
+            <div class="absolute inset-0 bg-gradient-to-t from-ivory via-transparent to-transparent opacity-60"></div>
+            <div class="absolute bottom-3 inset-x-0 text-center">
+              <a href="#itinerary" class="inline-block px-3.5 py-1 rounded-full bg-ivory/90 backdrop-blur-sm border border-gold/40 text-gold font-title text-[10px] sm:text-[11px] tracking-widest uppercase font-semibold shadow-sm hover:bg-gold-light transition-colors">
+                The Wedding Itinerary
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Main Page Content -->
+    <div class="px-5 sm:px-8 lg:px-10 py-6 md:py-9 space-y-8 md:space-y-12 flex-1">
+
+      <!-- ============================================== -->
+      <!-- COMPLETE WEDDING ITINERARY (Side-by-Side md+)   -->
+      <!-- ============================================== -->
+      <section id="itinerary" class="scroll-mt-20">
+        <!-- Section Title -->
+        <div class="text-center mb-5 md:mb-8">
+          <div class="inline-flex items-center justify-center gap-2.5 text-gold mb-1.5">
+            <span class="w-8 sm:w-12 h-px bg-gold/50"></span>
+            <span class="font-title text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold">Celebration Schedule</span>
+            <span class="w-8 sm:w-12 h-px bg-gold/50"></span>
+          </div>
+          <h2 class="font-headline text-[21px] sm:text-[26px] md:text-[30px] font-semibold text-text-charcoal">
+            Two Days of Sacred Festivities
+          </h2>
+          <p class="font-body text-[12px] sm:text-[13px] text-text-muted mt-1 max-w-lg mx-auto">
+            From auspicious temple prayers and vibrant henna to sacred phere and the celebratory banquet.
+          </p>
+        </div>
+
+        <!-- Dynamic 2-Column Grid: Stacked on Mobile, Side-by-Side on Laptop / Wider Screens -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-7 items-stretch">
+
+          <!-- DAY 1 CARD -->
+          <section id="day-1" class="scroll-mt-20 bg-white/90 rounded-xl p-4 sm:p-5 lg:p-6 border border-border-soft shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col">
+            <!-- Corner Accent -->
+            <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-gold-light/30 pointer-events-none"></div>
+
+            <div class="flex items-center justify-between gap-2 border-b border-border-soft pb-3 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="text-xl sm:text-2xl">🌸</span>
+                <div>
+                  <span class="font-label text-[10px] uppercase tracking-wider text-vermillion font-bold block">Day 1</span>
+                  <h3 class="font-headline text-[17px] sm:text-[19px] font-semibold text-text-charcoal leading-tight">Friday, 23rd January</h3>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-pink-50 text-vermillion font-label text-[10px] sm:text-[11px] font-semibold border border-pink-200 shrink-0">
+                Mandir &amp; Resort
+              </span>
+            </div>
+
+            <!-- Day 1 Timeline Items -->
+            <div class="space-y-4 md:space-y-6 relative pl-4 md:pl-5 border-l-2 border-gold/30 ml-1.5 flex-1">
+
+              <!-- 07:00 AM -->
+              <div class="relative">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1 w-2.5 h-2.5 rounded-full bg-gold border-2 border-ivory"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-gold bg-gold-light/80 px-2.5 py-0.5 rounded-full border border-gold/30 tabular-nums">
+                    07:00 AM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-text-muted italic">Gayatri Temple</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-text-charcoal mt-1.5">
+                  Shiv-Gauri Poojan &amp; Matkor
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  Sacred Vedic prayer invoking divine blessings for prosperity, peace, and harmony.
+                </p>
+              </div>
+
+              <!-- 02:30 PM -->
+              <div class="relative pt-0.5">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-emerald border-2 border-ivory"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-emerald bg-emerald/10 px-2.5 py-0.5 rounded-full border border-emerald/20 tabular-nums">
+                    02:30 PM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-emerald font-semibold uppercase tracking-wider">Henna Celebration</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-text-charcoal mt-1.5">
+                  Mehendi &amp; Candid Photoshoot
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  Adorn hands with intricate bridal henna accompanied by live dhol, refreshments, and vibrant portraits.
+                </p>
+              </div>
+
+              <!-- 06:30 PM -->
+              <div class="relative pt-0.5">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-vermillion border-2 border-ivory"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-vermillion bg-pink-50 px-2.5 py-0.5 rounded-full border border-pink-200 tabular-nums">
+                    06:30 PM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-vermillion font-semibold uppercase tracking-wider">Musical Night</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-text-charcoal mt-1.5">
+                  Sangeet, Folk Songs &amp; Dance
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  An electric musical evening of family dances, traditional folk melodies, laughter, and high spirits.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Day 1 Venue & Flow Summary Footer (balances height on side-by-side layout) -->
+            <div class="mt-6 pt-4 border-t border-border-soft/80 relative z-10">
+              <div class="rounded-lg bg-[#FAF5EE]/80 border border-border-soft/80 p-3 space-y-1.5">
+                <div class="flex items-center gap-2 text-[11px] sm:text-[12px] text-text-charcoal">
+                  <span class="material-symbols-outlined text-gold text-sm">temple_hindu</span>
+                  <span><strong class="font-semibold">Morning:</strong> Gayatri Temple (Poojan &amp; Matkor)</span>
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-[12px] text-text-charcoal">
+                  <span class="material-symbols-outlined text-vermillion text-sm">music_note</span>
+                  <span><strong class="font-semibold">Afternoon &amp; Evening:</strong> Praveg Resort, Silvassa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- DAY 2 CARD -->
+          <section id="day-2" class="scroll-mt-20 bg-white/90 rounded-xl p-4 sm:p-5 lg:p-6 border border-gold/40 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col">
+            <!-- Corner Accent -->
+            <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-amber-100/40 pointer-events-none"></div>
+
+            <div class="flex items-center justify-between gap-2 border-b border-gold/25 pb-3 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="text-xl sm:text-2xl">💛</span>
+                <div>
+                  <span class="font-label text-[10px] uppercase tracking-wider text-gold font-bold block">Day 2</span>
+                  <h3 class="font-headline text-[17px] sm:text-[19px] font-semibold text-text-charcoal leading-tight">Saturday, 24th January</h3>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-gold-light text-text-charcoal font-label text-[10px] sm:text-[11px] font-semibold border border-gold/40 shrink-0">
+                Praveg Resort Silvassa
+              </span>
+            </div>
+
+            <!-- Day 2 Timeline Items -->
+            <div class="space-y-4 relative pl-4 md:pl-5 border-l-2 border-gold/40 ml-1.5 flex-1">
+
+              <!-- 09:00 AM: Haldi -->
+              <div class="relative">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1 w-2.5 h-2.5 rounded-full bg-amber-400 border-2 border-ivory ring-2 ring-amber-200"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-text-charcoal bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300 tabular-nums">
+                    09:00 AM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-amber-700 font-semibold uppercase tracking-wider">Turmeric Ritual</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-text-charcoal mt-1.5">
+                  Auspicious Haldi Ceremony
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  A joyful golden celebration of turmeric paste, marigold showers, and heartfelt blessings.
+                </p>
+              </div>
+
+              <!-- 12:20 PM: Barat -->
+              <div class="relative pt-0.5">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-gold border-2 border-ivory"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-gold bg-gold-light/80 px-2.5 py-0.5 rounded-full border border-gold/30 tabular-nums">
+                    12:20 PM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-emerald font-semibold uppercase tracking-wider">Swagat</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-text-charcoal mt-1.5">
+                  Welcoming of the Barat
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  Arrival of the groom with grand procession, festive dhols, and traditional milni reception.
+                </p>
+              </div>
+
+              <!-- 02:13 PM: Jaimala -->
+              <div class="relative pt-0.5">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-emerald border-2 border-ivory"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-emerald bg-emerald/10 px-2.5 py-0.5 rounded-full border border-emerald/20 tabular-nums">
+                    02:13 PM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-emerald font-semibold uppercase tracking-wider">Garland Exchange</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-text-charcoal mt-1.5">
+                  Jaimala &amp; Ring Ceremony
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  Exchanging auspicious floral garlands and promise rings under the royal floral mandap.
+                </p>
+              </div>
+
+              <!-- 06:23 PM: Sacred Phere -->
+              <div class="relative pt-0.5">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-vermillion border-2 border-ivory ring-2 ring-vermillion/20"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-white bg-vermillion px-2.5 py-0.5 rounded-full tabular-nums shadow-sm">
+                    06:23 PM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-vermillion font-bold uppercase tracking-wider">Shubh Vivah</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-vermillion mt-1.5">
+                  Sacred Phere (Wedding Nuptials)
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  The seven sacred steps around holy Agni, Vedic shlokas, sindoor ceremony, and eternal commitments.
+                </p>
+              </div>
+
+              <!-- 08:00 PM: Grand Dinner -->
+              <div class="relative pt-0.5">
+                <div class="absolute -left-[22px] md:-left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-gold border-2 border-ivory"></div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-label text-[11px] font-semibold text-text-charcoal bg-gold-light px-2.5 py-0.5 rounded-full border border-gold/40 tabular-nums">
+                    08:00 PM
+                  </span>
+                  <span class="text-[10px] sm:text-[11px] text-gold font-semibold uppercase tracking-wider">Celebration Feast</span>
+                </div>
+                <h4 class="font-headline text-[14px] sm:text-[16px] font-semibold text-text-charcoal mt-1.5">
+                  Grand Wedding Dinner &amp; Celebrations
+                </h4>
+                <p class="font-body text-[12px] sm:text-[13px] text-text-muted leading-relaxed mt-0.5">
+                  A lavish celebratory banquet with regional culinary delicacies, desserts, and warm fellowship.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Day 2 Summary Footer -->
+            <div class="mt-6 pt-4 border-t border-gold/25 relative z-10">
+              <div class="rounded-lg bg-gold-light/40 border border-gold/30 p-3 flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-[12px] text-text-charcoal">
+                <span class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-vermillion text-sm">auto_awesome</span>
+                  <span><strong class="font-semibold">Shubh Vivah:</strong> 06:23 PM</span>
+                </span>
+                <span class="text-text-muted font-medium">All ceremonies at Praveg Rezort</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VENUE & SACRED MANDAP SHOWCASE (Side-by-Side)   -->
+      <!-- ============================================== -->
+      <section id="venue" class="scroll-mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
+
+          <!-- Second Artwork Banner: Sacred Phere & Mandap -->
+          <div class="md:col-span-7 relative w-full h-44 sm:h-56 md:h-auto md:min-h-[250px] rounded-xl overflow-hidden border border-gold/30 shadow-sm bg-[#FCF8F3]">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAX9zuT6GmGzY0PjrO-kiludn2OaSgf-juuHLGPyw7rV5EiJCVimjAfHBLvEAOy7Js6DfTxj9PGVhGeb_-eeCsqcExKk1eKtYVgatfAAsLVnCSkm0jqEmRyw-YjePKq5PnNHM7MQqinlpfQ-sxp59lmUEEsKTHZD7C8MmL6jHU6RcSMqpeM9DoBaGmnQFYaG42BzJf-akc1rNchmYUlyVoc3ArzU1wpozK7nS12YnSMWhG2ro-5EVP1QtMZExuX" alt="Anjali and Avinash during sacred wedding phere nuptials" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 text-white flex flex-wrap items-center justify-between gap-2">
+              <span class="font-headline text-[14px] sm:text-[16px] font-semibold drop-shadow">Sacred Mandap Moments</span>
+              <span class="text-[11px] sm:text-[12px] font-body text-amber-200 drop-shadow flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">temple_hindu</span>
+                Praveg Rezort Silvassa
+              </span>
+            </div>
+          </div>
+
+          <!-- Venue & Location Details Callout -->
+          <div class="md:col-span-5 bg-gold-light/40 border border-gold/40 rounded-xl p-5 sm:p-6 flex flex-col justify-center text-center md:text-left">
+            <span class="inline-flex items-center justify-center md:justify-start gap-1 font-label text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-1.5">
+              <span class="material-symbols-outlined text-sm">location_on</span>
+              Wedding Venue
+            </span>
+            <h2 class="font-headline text-[18px] sm:text-[22px] font-semibold text-text-charcoal flex items-center justify-center md:justify-start gap-1.5">
+              <span class="material-symbols-outlined text-gold text-lg md:hidden">pin_drop</span>
+              Praveg Rezort Silvassa
+            </h2>
+            <p class="font-body text-[12px] sm:text-[13px] text-text-muted mt-1">
+              Silvassa, Dadra and Nagar Haveli
+            </p>
+            <p class="font-body text-[11px] sm:text-[12px] text-text-muted mt-2.5 pt-2.5 border-t border-gold/25">
+              <strong class="text-text-charcoal font-semibold">Note:</strong> Day 1 morning Poojan (07:00 AM) takes place at <span class="text-text-charcoal font-medium">Gayatri Temple</span>, followed by all resort festivities at Praveg Rezort.
+            </p>
+            <p class="font-body text-[11px] sm:text-[12px] text-vermillion italic mt-3 flex items-center justify-center md:justify-start gap-1.5">
+              <span>🙏</span>
+              <span>Your presence and blessings are what make our celebrations complete.</span>
+            </p>
+            <div class="mt-4 flex justify-center md:justify-start">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Praveg+Resort+Silvassa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-ivory hover:bg-white border border-gold/50 text-text-charcoal font-label text-[11px] sm:text-[12px] font-semibold shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-gold text-sm">map</span>
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- RSVP FORM SECTION (Split Spread on Laptop/lg+)  -->
+      <!-- ============================================== -->
+      <section id="rsvp-section" class="scroll-mt-20 bg-white rounded-xl border-2 border-gold/40 shadow-md overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+
+          <!-- Left Invitation Panel (Header on Mobile, Editorial Sidebar on Desktop) -->
+          <div class="lg:col-span-5 bg-gradient-to-b lg:bg-gradient-to-br from-[#FAF4EC] to-gold-light/30 p-5 sm:p-6 lg:p-8 flex flex-col justify-center text-center lg:text-left border-b lg:border-b-0 lg:border-r border-border-soft">
+            <span class="font-script text-[34px] sm:text-[38px] lg:text-[42px] text-vermillion block leading-none mb-1.5">Kindly Respond</span>
+            <h2 class="font-headline text-[18px] sm:text-[22px] lg:text-[25px] font-semibold text-text-charcoal">Wedding RSVP</h2>
+            <p class="font-body text-[12px] sm:text-[13px] text-text-muted mt-1.5 leading-relaxed">
+              Please let us know if you can join us for the celebrations so we can prepare a warm welcome for you and your family.
+            </p>
+
+            <!-- Desktop Summary Highlights -->
+            <div class="hidden lg:block mt-6 pt-5 border-t border-gold/30 space-y-2.5 text-[12px] text-text-charcoal">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-ivory border border-gold/35 flex items-center justify-center text-gold shrink-0">
+                  <span class="material-symbols-outlined text-sm">calendar_month</span>
+                </span>
+                <span>Friday 23rd &amp; Saturday 24th January 2027</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-ivory border border-gold/35 flex items-center justify-center text-emerald shrink-0">
+                  <span class="material-symbols-outlined text-sm">pin_drop</span>
+                </span>
+                <span>Praveg Rezort, Silvassa</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-ivory border border-gold/35 flex items-center justify-center text-vermillion shrink-0">
+                  <span class="material-symbols-outlined text-sm">favorite</span>
+                </span>
+                <span class="italic text-text-muted">We eagerly await celebrating together!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Form Panel -->
+          <div class="lg:col-span-7 p-5 sm:p-6 lg:p-8">
+            <form id="rsvpForm" class="space-y-4" onsubmit="event.preventDefault(); showConfirmation();">
+
+              <!-- Full Name & Phone Number Grid (Side-by-side on sm+) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <!-- Full Name -->
+                <div>
+                  <label for="fullName" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
+                    Your Full Name <span class="text-vermillion">*</span>
+                  </label>
+                  <div class="relative">
+                    <input type="text" id="fullName" name="fullName" required placeholder="e.g. Ramesh &amp; Family" class="w-full px-3.5 py-2.5 pr-9 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400">
+                    <span class="material-symbols-outlined absolute right-3 top-2.5 text-gray-400 text-sm pointer-events-none">person</span>
+                  </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div>
+                  <label for="phoneNumber" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
+                    Phone Number <span class="text-vermillion">*</span>
+                  </label>
+                  <div class="relative">
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="+91 98765 43210" class="w-full px-3.5 py-2.5 pr-9 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400">
+                    <span class="material-symbols-outlined absolute right-3 top-2.5 text-gray-400 text-sm pointer-events-none">call</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Number of Guests & Estimated Arrival Time Grid -->
+              <div class="grid grid-cols-2 gap-3 sm:gap-3.5">
+
+                <!-- Number of Guests -->
+                <div>
+                  <label for="guestCount" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
+                    Number of Guests <span class="text-vermillion">*</span>
+                  </label>
+                  <div class="relative">
+                    <select id="guestCount" name="guestCount" required class="w-full px-3 py-2.5 pr-8 text-[13px] font-body bg-[#FAF8F5] bg-none border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold appearance-none text-text-charcoal">
+                      <option value="1">1 Person</option>
+                      <option value="2" selected>2 Persons</option>
+                      <option value="3">3 Persons</option>
+                      <option value="4">4 Persons</option>
+                      <option value="5+">5+ Persons</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-gray-400 text-sm pointer-events-none">group</span>
+                  </div>
+                </div>
+
+                <!-- Arrival Time -->
+                <div>
+                  <label for="arrivalTime" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
+                    Arrival Time <span class="text-vermillion">*</span>
+                  </label>
+                  <div class="relative">
+                    <select id="arrivalTime" name="arrivalTime" required class="w-full px-3 py-2.5 pr-8 text-[13px] font-body bg-[#FAF8F5] bg-none border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold appearance-none text-text-charcoal">
+                      <option value="Day 1 Morning (Poojan)">Day 1: 07:00 AM</option>
+                      <option value="Day 1 Afternoon (Mehendi)" selected>Day 1: 02:00 PM</option>
+                      <option value="Day 1 Evening (Sangeet)">Day 1: 06:00 PM</option>
+                      <option value="Day 2 Morning (Haldi)">Day 2: 09:00 AM</option>
+                      <option value="Day 2 Afternoon (Barat)">Day 2: 12:00 PM</option>
+                      <option value="Day 2 Evening (Phere &amp; Dinner)">Day 2: 06:00 PM</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-gray-400 text-sm pointer-events-none">schedule</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Notes / Wishes / Dietary Needs -->
+              <div>
+                <label for="notes" class="block font-label text-[11px] font-semibold uppercase tracking-wider text-text-charcoal mb-1">
+                  Notes &amp; Warm Wishes
+                </label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Share dietary preferences, travel notes, or warm wishes for Anjali &amp; Avinash..." class="w-full px-3.5 py-2.5 text-[13px] font-body bg-[#FAF8F5] border border-border-soft rounded-lg focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold placeholder:text-gray-400 resize-none"></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-1">
+                <button type="submit" id="submitBtn" class="w-full py-3 px-5 bg-light-primary hover:bg-[#721E2A] text-white font-label text-[13px] font-semibold rounded-full shadow-md transition duration-200 flex items-center justify-center gap-2 group cursor-pointer">
+                  <span>Send RSVP Confirmation</span>
+                  <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">send</span>
+                </button>
+              </div>
+
+            </form>
+
+            <!-- Dynamic Success Confirmation Banner -->
+            <div id="rsvpConfirmation" class="hidden p-5 sm:p-6 rounded-xl bg-gold-light/60 border border-gold/40 text-center animate-fade-in">
+              <div class="w-11 h-11 rounded-full bg-emerald/20 text-emerald flex items-center justify-center mx-auto mb-2.5">
+                <span class="material-symbols-outlined text-2xl">check_circle</span>
+              </div>
+              <h4 class="font-headline text-[17px] font-semibold text-text-charcoal">RSVP Received with Joy!</h4>
+              <p class="font-body text-[13px] text-text-muted mt-1.5 max-w-md mx-auto" id="rsvpSummaryText">
+                Thank you! Your presence will make our wedding day truly memorable.
+              </p>
+              <button type="button" onclick="resetRSVPForm()" class="mt-4 text-[12px] text-vermillion font-medium underline hover:text-text-charcoal cursor-pointer">
+                Submit another response
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer: Sacred Blessing & Quick Navigation -->
+    <footer class="mt-4 pt-5 pb-7 px-6 sm:px-10 bg-[#FAF5EE] border-t border-border-soft text-center text-text-muted">
+      <div class="flex justify-center items-center gap-2 text-gold text-xs mb-1.5">
+        <span>❖</span>
+        <span>•</span>
+        <span class="font-script text-xl text-vermillion">Anjali &amp; Avinash</span>
+        <span>•</span>
+        <span>❖</span>
+      </div>
+      <p class="font-body text-[11px] sm:text-[12px] text-text-muted">
+        We cannot wait to celebrate with you at Praveg Resort, Silvassa!
+      </p>
+      <div class="mt-3.5 flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[11px] sm:text-[12px] font-semibold text-gold">
+        <a href="#day-1" class="hover:underline">Day 1</a>
+        <span>•</span>
+        <a href="#day-2" class="hover:underline">Day 2</a>
+        <span>•</span>
+        <a href="#venue" class="hover:underline">Venue</a>
+        <span>•</span>
+        <a href="#rsvp-section" class="hover:underline flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs">edit_note</span> RSVP Now
+        </a>
+        <span>•</span>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Praveg+Resort+Silvassa" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs">map</span> View Map
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    function showConfirmation() {
+      const name = document.getElementById('fullName').value.trim();
+      const guests = document.getElementById('guestCount').value;
+      const time = document.getElementById('arrivalTime').value;
+
+      const summaryText = document.getElementById('rsvpSummaryText');
+      summaryText.textContent = `Thank you ${name}! We have noted ${guests} guest(s) arriving around ${time}. Looking forward to seeing you!`;
+
+      document.getElementById('rsvpForm').classList.add('hidden');
+      document.getElementById('rsvpConfirmation').classList.remove('hidden');
+    }
+
+    function resetRSVPForm() {
+      document.getElementById('rsvpForm').reset();
+      document.getElementById('rsvpForm').classList.remove('hidden');
+      document.getElementById('rsvpConfirmation').classList.add('hidden');
+    }
+
+    // Live Countdown to Wedding Day 1 (23rd January 2027, 07:00 AM IST)
+    (function initCountdown() {
+      const weddingTime = new Date('2027-01-23T07:00:00+05:30').getTime();
+      const container = document.getElementById('weddingCountdown');
+      const daysEl = document.getElementById('cd-days');
+      const hoursEl = document.getElementById('cd-hours');
+      const minsEl = document.getElementById('cd-mins');
+      const secsEl = document.getElementById('cd-secs');
+
+      function updateCountdown() {
+        const diff = weddingTime - Date.now();
+        if (diff <= 0) {
+          container.innerHTML = '<span class="px-3.5 py-1.5 rounded-full bg-gold-light/70 border border-gold/40 font-headline text-[13px] text-vermillion font-semibold">The Wedding Celebrations Have Begun!</span>';
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+
+        daysEl.textContent = String(days);
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minsEl.textContent = String(mins).padStart(2, '0');
+        secsEl.textContent = String(secs).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+
+    // Active Top Navigation Highlighting + Side-by-Side Day Spotlight
+    (function initNavInteractions() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      let preferredDay = 'day-1';
+
+      function setActiveNav(targetId) {
+        navLinks.forEach((link) => {
+          link.classList.toggle('nav-pill-active', link.dataset.navTarget === targetId);
+        });
+      }
+
+      function spotlightCard(id) {
+        const card = document.getElementById(id);
+        if (!card) return;
+        card.classList.remove('card-spotlight');
+        void card.offsetWidth; // trigger reflow to replay animation
+        card.classList.add('card-spotlight');
+        setTimeout(() => card.classList.remove('card-spotlight'), 1300);
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          const targetId = link.dataset.navTarget;
+          if (targetId === 'day-1' || targetId === 'day-2') {
+            preferredDay = targetId;
+            spotlightCard(targetId);
+          }
+          setActiveNav(targetId);
+        });
+      });
+
+      const sections = ['day-1', 'day-2', 'venue', 'rsvp-section'];
+      function onScroll() {
+        const scrollPos = window.scrollY + 130;
+        const isSideBySide = window.innerWidth >= 768;
+        let current = '';
+
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          if (scrollPos >= el.offsetTop) {
+            current = id;
+          }
+        }
+
+        // On wider screens Day 1 and Day 2 share the same vertical position
+        if (isSideBySide && (current === 'day-1' || current === 'day-2')) {
+          current = preferredDay;
+        }
+
+        setActiveNav(current);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
 </body>
 </html>
